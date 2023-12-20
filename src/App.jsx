@@ -3,6 +3,7 @@ import { useState } from "react";
 import Heading from "./components/Heading";
 import Rooms from "./components/Rooms";
 import Room from "./components/Room";
+import RoomForm from "./components/RoomForm";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("home");
@@ -73,6 +74,10 @@ function App() {
     setCurrentRoom(room);
   };
 
+  const handleNewRoomClick = function (room) {
+    setCurrentPage("roomForm");
+  };
+
   let content = "";
 
   if (currentPage === "home") {
@@ -93,11 +98,23 @@ function App() {
     );
   }
 
+  if (currentPage === "roomForm") {
+    content = (
+      <>
+        <Heading name={"Add a new room"} />
+        <RoomForm />
+      </>
+    );
+  }
+
   return (
     <>
       {content}
       <div className="fixed bottom-10 right-10">
-        <button className="text-white bg-slate-800 rounded-full h-16 w-16s flex justify-center items-center p-3">
+        <button
+          onClick={handleNewRoomClick}
+          className="text-white bg-slate-800 rounded-full h-16 w-16s flex justify-center items-center p-3"
+        >
           <span className="text-[3rem] font-bold pb-3">+</span>
         </button>
       </div>
