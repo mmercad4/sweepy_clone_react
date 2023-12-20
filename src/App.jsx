@@ -75,7 +75,27 @@ function App() {
   ]);
 
   const handleNewRoomAdded = function (room) {
-    setRooms((prevState) => [...prevState, room]);
+    const name = room.name;
+    const task = room.task;
+    const frequency = room.frequency;
+
+    const roomToAdd = {
+      room: name,
+      tasks: [
+        {
+          task: task,
+          cleanliness: 0,
+          id: 0,
+          lastCleaned: new Date(),
+          frequency: frequency,
+        },
+      ],
+      cleanliness: 0,
+      id: Math.floor(Math.random() * 1000),
+    };
+
+    setRooms((prevState) => [...prevState, roomToAdd]);
+    setCurrentPage("home");
   };
 
   const handleRoomClick = function (room) {

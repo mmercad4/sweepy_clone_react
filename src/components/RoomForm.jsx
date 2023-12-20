@@ -1,18 +1,13 @@
 import { useState } from "react";
 
 export default function RoomForm({ onAddNewRoom }) {
-  const [room, setRoom] = useState({
-    room: "",
-    tasks: [],
-    cleanliness: 0,
-    id: Math.floor(Math.random() * 1000),
-  });
-
   const [formValues, setFormValues] = useState({
     name: "",
     task: "",
-    frequency: 0,
+    frequency: "",
   });
+
+  console.log(formValues);
 
   const handleInputChange = (e) => {
     if (e.target.name === "room") {
@@ -29,15 +24,12 @@ export default function RoomForm({ onAddNewRoom }) {
       }));
     }
 
-    if (e.target.frequency === "frequency") {
+    if (e.target.name === "frequency") {
       setFormValues((prevState) => ({
         ...prevState,
         frequency: e.target.value,
       }));
     }
-    console.log("name", formValues.name);
-    console.log("task", formValues.task);
-    console.log("frequency", formValues.frequency);
   };
 
   return (
@@ -88,13 +80,14 @@ export default function RoomForm({ onAddNewRoom }) {
               name="frequency"
               id="frequency"
               placeholder="frequency in days"
+              onChange={handleInputChange}
               value={formValues.frequency}
             />
           </div>
           <button
             onClick={(e) => {
               e.preventDefault();
-              console.log(e.target);
+              onAddNewRoom(formValues);
             }}
             className="w-full mt-6 bg-blue-950 rounded-lg px-4 py-2 text-lg text-white tracking-wide font-semibold font-sans"
           >
