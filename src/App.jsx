@@ -74,13 +74,17 @@ function App() {
     },
   ]);
 
+  const handleNewRoomAdded = function (room) {
+    setRooms((prevState) => [...prevState, room]);
+  };
+
   const handleRoomClick = function (room) {
     console.log(`${room.id} has been clicked`);
     setCurrentPage("room");
     setCurrentRoom(room);
   };
 
-  const handleNewRoomClick = function () {
+  const handleAddNewRoom = function () {
     setCurrentPage("roomForm");
   };
 
@@ -108,7 +112,7 @@ function App() {
     content = (
       <>
         <Heading name={"Add a new room"} />
-        <RoomForm />
+        <RoomForm onAddNewRoom={handleNewRoomAdded} />
       </>
     );
   }
@@ -118,7 +122,7 @@ function App() {
       {content}
       <div className="fixed bottom-10 right-10">
         <button
-          onClick={handleNewRoomClick}
+          onClick={handleAddNewRoom}
           className="text-white bg-slate-800 rounded-full h-16 w-16s flex justify-center items-center p-3"
         >
           <span className="text-[3rem] font-bold pb-3">+</span>

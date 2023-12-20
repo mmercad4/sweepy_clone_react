@@ -1,4 +1,13 @@
-export default function RoomForm() {
+import { useState } from "react";
+
+export default function RoomForm({ onAddNewRoom }) {
+  const [room, setRoom] = useState({
+    room: "",
+    tasks: [],
+    cleanliness: 0,
+    id: Math.floor(Math.random() * 1000),
+  });
+
   return (
     <div className="flex justify-center items-center">
       <div className="lg:w-2/5 md:w-1/2 w-2/3">
@@ -13,8 +22,8 @@ export default function RoomForm() {
             <input
               className="w-full bg-slate-700 px-4 py-2 rounded-lg focus:outline-none focus:text-white"
               type="text"
-              name="RoomName"
-              id="RoomName"
+              name="room"
+              id="room"
               placeholder="Room name"
             />
           </div>
@@ -28,8 +37,8 @@ export default function RoomForm() {
             <input
               className="w-full bg-slate-700 px-4 py-2 rounded-lg focus:outline-none focus:text-white"
               type="text"
-              name="taskName"
-              id="taskName"
+              name="task"
+              id="task"
               placeholder="task name"
             />
           </div>
@@ -45,7 +54,13 @@ export default function RoomForm() {
               placeholder="frequency in days"
             />
           </div>
-          <button className="w-full mt-6 bg-blue-950 rounded-lg px-4 py-2 text-lg text-white tracking-wide font-semibold font-sans">
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              console.log(e.target);
+            }}
+            className="w-full mt-6 bg-blue-950 rounded-lg px-4 py-2 text-lg text-white tracking-wide font-semibold font-sans"
+          >
             Add room
           </button>
         </form>
