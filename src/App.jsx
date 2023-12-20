@@ -9,45 +9,57 @@ function App() {
   const [currentRoom, setCurrentRoom] = useState({});
   const [rooms, setRooms] = useState([
     {
-      room: "bedroom",
+      room: "Bedroom",
       tasks: [
         {
           task: "sweep",
           cleanliness: 100,
+          id: 0,
+          lastCleaned: new Date("2023-12-31T12:30:00"),
         },
       ],
       cleanliness: 0,
       id: 0,
     },
     {
-      room: "bedroom",
+      room: "Kitchen",
       tasks: [
         {
           task: "sweep",
           cleanliness: 100,
+          id: 0,
+          lastCleaned: new Date("2023-12-31T12:30:00"),
         },
       ],
       cleanliness: 0,
       id: 1,
     },
     {
-      room: "bedroom",
+      room: "Office",
       tasks: [
         {
           task: "sweep",
           cleanliness: 50,
+          id: 0,
+          lastCleaned: new Date("2023-12-31T12:30:00"),
         },
         {
           task: "sweep",
           cleanliness: 50,
+          id: 1,
+          lastCleaned: new Date("2023-12-31T12:30:00"),
         },
         {
           task: "sweep",
           cleanliness: 50,
+          id: 2,
+          lastCleaned: new Date("2023-12-31T12:30:00"),
         },
         {
           task: "sweep",
           cleanliness: 50,
+          id: 3,
+          lastCleaned: new Date("2023-12-31T12:30:00"),
         },
       ],
       cleanliness: 0,
