@@ -87,7 +87,7 @@ function App() {
   if (currentPage === "room") {
     content = (
       <div className="bg-gray-700 h-[100vh]">
-        <Heading name={currentRoom.room} />
+        <Heading name={`${currentRoom.room} tasks`} />
         <Room room={currentRoom} />
       </div>
     );
