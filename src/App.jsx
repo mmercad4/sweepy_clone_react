@@ -4,6 +4,7 @@ import Heading from "./components/Heading";
 import Room from "./components/Room";
 
 function App() {
+  const [currentPage, setCurrentPage] = useState("home");
   const [rooms, setRooms] = useState([
     {
       room: "bedroom",
@@ -14,6 +15,7 @@ function App() {
         },
       ],
       cleanliness: 0,
+      id: 0,
     },
     {
       room: "bedroom",
@@ -24,6 +26,7 @@ function App() {
         },
       ],
       cleanliness: 0,
+      id: 1,
     },
     {
       room: "bedroom",
@@ -46,15 +49,21 @@ function App() {
         },
       ],
       cleanliness: 0,
+      id: 2,
     },
   ]);
 
-  return (
-    <div className="bg-gray-700 h-[100vh]">
-      <Heading />
-      <Room rooms={rooms} />
-    </div>
-  );
+  let content = "";
+
+  if (currentPage === "home") {
+    content = (
+      <div className="bg-gray-700 h-[100vh]">
+        <Heading />
+        <Room rooms={rooms} />
+      </div>
+    );
+  }
+  return content;
 }
 
 export default App;
