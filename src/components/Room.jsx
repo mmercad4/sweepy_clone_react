@@ -1,6 +1,3 @@
-import { useState } from "react";
-import ProgressBar from "./ProgressBar";
-
 export default function Room({ rooms }) {
   const roomsToDisplay = rooms.map((room) => {
     const totalCleanliness = room.tasks.reduce(
@@ -11,7 +8,10 @@ export default function Room({ rooms }) {
     const roomCleanliness = totalCleanliness / room.tasks.length + 1;
 
     return (
-      <div className="w-[50vw] mx-auto bg-slate-600 rounded-xl shadow-md overflow-hidden m-5 text-white cursor-pointer px-10 py-5">
+      <div
+        key={room.id}
+        className="w-[50vw] mx-auto bg-slate-600 rounded-xl shadow-md overflow-hidden m-5 text-white cursor-pointer px-10 py-5"
+      >
         <div className="flex justify-between">
           <div>
             <h1 className="text-3xl">{room.room}</h1>
