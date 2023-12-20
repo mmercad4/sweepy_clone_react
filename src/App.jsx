@@ -13,6 +13,7 @@ function App() {
           cleanliness: 100,
         },
       ],
+      cleanliness: 0,
     },
     {
       room: "bedroom",
@@ -22,15 +23,29 @@ function App() {
           cleanliness: 100,
         },
       ],
+      cleanliness: 0,
     },
     {
       room: "bedroom",
       tasks: [
         {
           task: "sweep",
-          cleanliness: 100,
+          cleanliness: 50,
+        },
+        {
+          task: "sweep",
+          cleanliness: 50,
+        },
+        {
+          task: "sweep",
+          cleanliness: 50,
+        },
+        {
+          task: "sweep",
+          cleanliness: 50,
         },
       ],
+      cleanliness: 0,
     },
   ]);
 
