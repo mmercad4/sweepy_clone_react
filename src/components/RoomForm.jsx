@@ -8,6 +8,38 @@ export default function RoomForm({ onAddNewRoom }) {
     id: Math.floor(Math.random() * 1000),
   });
 
+  const [formValues, setFormValues] = useState({
+    name: "",
+    task: "",
+    frequency: 0,
+  });
+
+  const handleInputChange = (e) => {
+    if (e.target.name === "room") {
+      setFormValues((prevState) => ({
+        ...prevState,
+        name: e.target.value,
+      }));
+    }
+
+    if (e.target.name === "task") {
+      setFormValues((prevState) => ({
+        ...prevState,
+        task: e.target.value,
+      }));
+    }
+
+    if (e.target.frequency === "frequency") {
+      setFormValues((prevState) => ({
+        ...prevState,
+        frequency: e.target.value,
+      }));
+    }
+    console.log("name", formValues.name);
+    console.log("task", formValues.task);
+    console.log("frequency", formValues.frequency);
+  };
+
   return (
     <div className="flex justify-center items-center">
       <div className="lg:w-2/5 md:w-1/2 w-2/3">
@@ -25,6 +57,8 @@ export default function RoomForm({ onAddNewRoom }) {
               name="room"
               id="room"
               placeholder="Room name"
+              onChange={handleInputChange}
+              value={formValues.name}
             />
           </div>
           <h1 className="text-center text-2xl mb-6 mt-10 text-white font-bold font-sans">
@@ -40,6 +74,8 @@ export default function RoomForm({ onAddNewRoom }) {
               name="task"
               id="task"
               placeholder="task name"
+              onChange={handleInputChange}
+              value={formValues.task}
             />
           </div>
           <div>
@@ -52,6 +88,7 @@ export default function RoomForm({ onAddNewRoom }) {
               name="frequency"
               id="frequency"
               placeholder="frequency in days"
+              value={formValues.frequency}
             />
           </div>
           <button
