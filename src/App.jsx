@@ -92,7 +92,17 @@ function App() {
       </div>
     );
   }
-  return content;
+
+  return (
+    <>
+      {content}
+      <div className="fixed bottom-10 right-10">
+        <button className="text-white bg-slate-800 rounded-full h-16 w-16s flex justify-center items-center p-3">
+          <span className="text-[3rem] font-bold pb-3">+</span>
+        </button>
+      </div>
+    </>
+  );
 }
 
 export default App;
