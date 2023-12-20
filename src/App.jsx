@@ -1,11 +1,12 @@
 import { useState } from "react";
 
 import Heading from "./components/Heading";
-import Room from "./components/Rooms";
+import Rooms from "./components/Rooms";
+import Room from "./components/Room";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("home");
-  const [currentRoom, setCurrentRoom] = useState("");
+  const [currentRoom, setCurrentRoom] = useState({});
   const [rooms, setRooms] = useState([
     {
       room: "bedroom",
@@ -54,13 +55,28 @@ function App() {
     },
   ]);
 
+  const handleRoomClick = function (room) {
+    console.log(`${room.id} has been clicked`);
+    setCurrentPage("room");
+    setCurrentRoom(room);
+  };
+
   let content = "";
 
   if (currentPage === "home") {
     content = (
       <div className="bg-gray-700 h-[100vh]">
         <Heading name="ROOMS" />
-        <Room rooms={rooms} />
+        <Rooms rooms={rooms} onRoomClick={handleRoomClick} />
+      </div>
+    );
+  }
+
+  if (currentPage === "room") {
+    content = (
+      <div className="bg-gray-700 h-[100vh]">
+        <Heading name={currentRoom.room} />
+        <Room room={currentRoom} />
       </div>
     );
   }

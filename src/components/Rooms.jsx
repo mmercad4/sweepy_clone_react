@@ -1,4 +1,4 @@
-export default function Room({ rooms }) {
+export default function Rooms({ rooms, onRoomClick }) {
   const roomsToDisplay = rooms.map((room) => {
     const totalCleanliness = room.tasks.reduce(
       (total, task) => total + task.cleanliness,
@@ -9,6 +9,9 @@ export default function Room({ rooms }) {
 
     return (
       <div
+        onClick={() => {
+          onRoomClick(room);
+        }}
         key={room.id}
         className="w-[50vw] mx-auto bg-slate-600 rounded-xl shadow-md overflow-hidden m-5 text-white cursor-pointer px-10 py-5"
       >

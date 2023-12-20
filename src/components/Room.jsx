@@ -1,3 +1,3 @@
-export default function Room() {
-  return <h1>This is a single room</h1>;
+export default function Room({ room }) {
+  return <h1>This is {room.room}</h1>;
 }
