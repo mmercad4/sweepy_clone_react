@@ -74,7 +74,7 @@ function App() {
     setCurrentRoom(room);
   };
 
-  const handleNewRoomClick = function (room) {
+  const handleNewRoomClick = function () {
     setCurrentPage("roomForm");
   };
 
@@ -108,7 +108,7 @@ function App() {
   }
 
   return (
-    <>
+    <div className="bg-slate-700 h-[100vh]">
       {content}
       <div className="fixed bottom-10 right-10">
         <button
@@ -118,7 +118,7 @@ function App() {
           <span className="text-[3rem] font-bold pb-3">+</span>
         </button>
       </div>
-    </>
+    </div>
   );
 }
 
