@@ -1,10 +1,11 @@
 import { useState } from "react";
 
 import Heading from "./components/Heading";
-import Room from "./components/Room";
+import Room from "./components/Rooms";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("home");
+  const [currentRoom, setCurrentRoom] = useState("");
   const [rooms, setRooms] = useState([
     {
       room: "bedroom",
@@ -58,7 +59,7 @@ function App() {
   if (currentPage === "home") {
     content = (
       <div className="bg-gray-700 h-[100vh]">
-        <Heading />
+        <Heading name="ROOMS" />
         <Room rooms={rooms} />
       </div>
     );
