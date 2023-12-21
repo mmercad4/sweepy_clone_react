@@ -7,8 +7,6 @@ export default function RoomForm({ onAddNewRoom }) {
     frequency: "",
   });
 
-  console.log(formValues);
-
   const handleInputChange = (e) => {
     if (e.target.name === "room") {
       setFormValues((prevState) => ({

@@ -6,6 +6,8 @@ import Room from "./components/Room";
 import RoomForm from "./components/RoomForm";
 
 function App() {
+  const currentDate = new Date();
+
   const [currentPage, setCurrentPage] = useState("home");
   const [currentRoom, setCurrentRoom] = useState({});
   const [rooms, setRooms] = useState([
@@ -78,6 +80,11 @@ function App() {
     const name = room.name;
     const task = room.task;
     const frequency = room.frequency;
+    const earliestDate = new Date(0);
+
+    const calculateCleanliness = () => {
+      const cleanliness = 'test'
+    };
 
     const roomToAdd = {
       room: name,
@@ -86,7 +93,7 @@ function App() {
           task: task,
           cleanliness: 0,
           id: 0,
-          lastCleaned: new Date(),
+          lastCleaned: earliestDate,
           frequency: frequency,
         },
       ],
